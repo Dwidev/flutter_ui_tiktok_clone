@@ -1,10 +1,9 @@
-import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:marquee/marquee.dart';
-import 'package:ui_tiktok_clone/model/video_model.dart';
-import 'package:ui_tiktok_clone/view/video_view.dart';
-import 'package:ui_tiktok_clone/widgets/tiktok_icons.dart';
+
+import '../model/video_model.dart';
+import '../view/video_view.dart';
+import '../widgets/tiktok_icons.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
