@@ -102,7 +102,7 @@ class _CommentSectionWidget extends StatelessWidget {
                               Row(
                                 children: [
                                   Text(
-                                    "10-29",
+                                    commentData.commentDate,
                                     style: textTheme.caption?.copyWith(
                                       fontSize: 12,
                                     ),
