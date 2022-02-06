@@ -1,3 +1,5 @@
+import 'package:ui_tiktok_clone/model/comment_model.dart';
+
 class VideoModel {
   final String username;
   final String videoName;
@@ -7,6 +9,7 @@ class VideoModel {
   final String totalLike;
   final String totalComment;
   final String totalShare;
+  final List<CommentModel> listComment;
 
   VideoModel({
     required this.username,
@@ -17,6 +20,7 @@ class VideoModel {
     required this.totalLike,
     required this.totalComment,
     required this.totalShare,
+    this.listComment = const [],
   });
 }
 
@@ -30,6 +34,35 @@ final dummyListVideo = [
     totalLike: "1.5M",
     totalComment: "11K",
     totalShare: "8237",
+    listComment: [
+      CommentModel(
+        photoUrl:
+            "https://asset.kompas.com/crops/CLKOgydea1KEwTYuz1rOrExk1hM=/0x36:1117x781/750x500/data/photo/2021/10/05/615c5f08bd530.jpg",
+        name: "kumpulanhewanlucu",
+        comment: "Asik Asik Asik Asik Asik Asik Asik Asik ",
+        isLikedCreator: false,
+        totalLike: 10,
+        commentDate: '10 j',
+      ),
+      CommentModel(
+        photoUrl:
+            "https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2021/12/30/1796415239.jpg",
+        name: "_gemini.girl",
+        comment: "Like it this content",
+        isLikedCreator: true,
+        totalLike: 0,
+        commentDate: '1 j',
+      ),
+      CommentModel(
+        photoUrl:
+            "https://cdn0-production-images-kly.akamaized.net/lblYgosAVBOctbYCx9TZQq2dnGE=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3489640/original/019358300_1624345538-francisco-gonzalez-M8UEJd58GcE-unsplash_Fotor.jpg",
+        name: "manusiagalau",
+        comment: "Perfect keren",
+        isLikedCreator: false,
+        totalLike: 0,
+        commentDate: 'Baru saja',
+      )
+    ],
   ),
   VideoModel(
     username: "kumpulanhewanlucu",

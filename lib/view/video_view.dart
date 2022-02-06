@@ -5,6 +5,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:marquee/marquee.dart';
 import 'package:ui_tiktok_clone/model/video_model.dart';
+import 'package:ui_tiktok_clone/widgets/comment_bottomsheet.dart';
+import 'package:ui_tiktok_clone/widgets/tiktok_bottomsheet.dart';
 import 'package:ui_tiktok_clone/widgets/tiktok_icons.dart';
 import 'package:video_player/video_player.dart';
 
@@ -36,7 +38,7 @@ class _VideoViewState extends State<VideoView>
     );
     _future = _videoPlayerController.initialize();
     _videoPlayerController.setLooping(true);
-    _videoPlayerController.play();
+    // _videoPlayerController.play();
 
     super.initState();
   }
@@ -141,16 +143,24 @@ class _VideoViewState extends State<VideoView>
                           textTheme,
                           TikTokIcons.heart,
                           widget.data.totalLike,
+                          onTap: () {},
                         ),
                         _sideBarButton(
                           textTheme,
                           TikTokIcons.chatBubble,
                           widget.data.totalComment,
+                          onTap: () {
+                            showCommentSection(
+                              context: context,
+                              listComment: widget.data.listComment,
+                            );
+                          },
                         ),
                         _sideBarButton(
                           textTheme,
                           TikTokIcons.reply,
                           widget.data.totalShare,
+                          onTap: () {},
                         ),
                         disc(widget.data.profilePicture)
                       ],
@@ -281,23 +291,31 @@ class _VideoViewState extends State<VideoView>
     );
   }
 
-  Column _sideBarButton(TextTheme textTheme, IconData icon, String value) {
-    return Column(
-      children: [
-        Icon(
-          icon,
-          size: 30,
-          color: Colors.white,
-        ),
-        const SizedBox(height: 6),
-        Text(
-          value,
-          style: textTheme.bodyText1?.copyWith(
+  Widget _sideBarButton(
+    TextTheme textTheme,
+    IconData icon,
+    String value, {
+    required VoidCallback onTap,
+  }) {
+    return InkWell(
+      onTap: onTap,
+      child: Column(
+        children: [
+          Icon(
+            icon,
+            size: 30,
             color: Colors.white,
-            fontSize: 12,
           ),
-        )
-      ],
+          const SizedBox(height: 6),
+          Text(
+            value,
+            style: textTheme.bodyText1?.copyWith(
+              color: Colors.white,
+              fontSize: 12,
+            ),
+          )
+        ],
+      ),
     );
   }
 }
